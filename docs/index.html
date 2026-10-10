@@ -7,115 +7,116 @@
   <meta name="description" content="HelpMeOut: A Neuropsychology-Grounded Benchmark for Error-Aware Monitoring of Household Task Execution (CoRL 2026).">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #fbf8f3; --surface: #ffffff; --ink: #22201c; --muted: #6b655c; --rule: #e7e1d6;
-      --ok: #2f7d5b; --ok-soft: #e3f1ea; --alarm: #c2410c; --alarm-soft: #fdeadf;
-      --prog: #6b4fa1; --prog-soft: #eee8f7; --act: #1f6f8b; --act-soft: #e2f0f5;
-      --btn: #22201c; --btn-ink: #fbf8f3; --btn-off: #a59d90;
+      --bg: #ffffff; --surface: #f5f6f8; --ink: #1d2330; --muted: #5b6474; --rule: #e4e7ec;
+      --ok: #2f7d5b; --ok-soft: #e6f3ec; --alarm: #b4442e; --alarm-soft: #fbe9e4;
+      --prog: #6b4fa1; --prog-soft: #f0ebf8; --act: #1f6f8b; --act-soft: #e5f1f6;
+      --btn: #1d2330; --btn-ink: #ffffff; --btn-off: #8a93a3;
     }
     @media (prefers-color-scheme: dark) {
       :root:not([data-theme="light"]) {
-        --bg: #17150f; --surface: #211e18; --ink: #ece6da; --muted: #a8a093; --rule: #332f27;
-        --ok: #6cc59b; --ok-soft: #1f3329; --alarm: #f08a5d; --alarm-soft: #3a2419;
-        --prog: #b9a3e6; --prog-soft: #2b2440; --act: #79c3dc; --act-soft: #1a2f37;
-        --btn: #ece6da; --btn-ink: #17150f; --btn-off: #5d574d;
+        --bg: #14171d; --surface: #1c2028; --ink: #e6e8ec; --muted: #a2a9b6; --rule: #2a2f39;
+        --ok: #6cc59b; --ok-soft: #1d3128; --alarm: #e07a5f; --alarm-soft: #3a231c;
+        --prog: #b9a3e6; --prog-soft: #2a2440; --act: #79c3dc; --act-soft: #182e36;
+        --btn: #e6e8ec; --btn-ink: #14171d; --btn-off: #6b7280;
       }
     }
     :root[data-theme="dark"] {
-      --bg: #17150f; --surface: #211e18; --ink: #ece6da; --muted: #a8a093; --rule: #332f27;
-      --ok: #6cc59b; --ok-soft: #1f3329; --alarm: #f08a5d; --alarm-soft: #3a2419;
-      --prog: #b9a3e6; --prog-soft: #2b2440; --act: #79c3dc; --act-soft: #1a2f37;
-      --btn: #ece6da; --btn-ink: #17150f; --btn-off: #5d574d;
+      --bg: #14171d; --surface: #1c2028; --ink: #e6e8ec; --muted: #a2a9b6; --rule: #2a2f39;
+      --ok: #6cc59b; --ok-soft: #1d3128; --alarm: #e07a5f; --alarm-soft: #3a231c;
+      --prog: #b9a3e6; --prog-soft: #2a2440; --act: #79c3dc; --act-soft: #182e36;
+      --btn: #e6e8ec; --btn-ink: #14171d; --btn-off: #6b7280;
     }
     * { box-sizing: border-box; }
     html { -webkit-text-size-adjust: 100%; }
     body { margin: 0; background: var(--bg); color: var(--ink);
-           font-family: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 17px; line-height: 1.65; }
-    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+           font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 17px; line-height: 1.65; }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
     a { color: inherit; }
 
-    .hero { padding: 64px 0 40px; }
-    .kicker { font-family: "IBM Plex Mono", monospace; font-size: 13px; color: var(--alarm); letter-spacing: .04em; margin-bottom: 18px; }
-    h1 { font-family: "Fraunces", Georgia, serif; font-weight: 700; font-size: clamp(30px, 5.2vw, 54px); line-height: 1.08; margin: 0 0 18px; max-width: 900px; }
-    .sub { font-size: clamp(17px, 2.2vw, 21px); color: var(--muted); max-width: 760px; margin: 0 0 26px; }
-    .people { display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: 16px; margin-bottom: 4px; }
+    .hero { padding: 56px 0 32px; text-align: center; }
+    .kicker { font-size: 13px; font-weight: 600; color: var(--alarm); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 14px; }
+    h1 { font-family: "Source Serif 4", Georgia, serif; font-weight: 700; font-size: clamp(26px, 4.4vw, 42px); line-height: 1.2; margin: 0 auto 16px; max-width: 900px; }
+    h1 .name { font-variant: small-caps; }
+    .sub { font-size: clamp(16px, 2vw, 19px); color: var(--muted); max-width: 720px; margin: 0 auto 22px; }
+    .people { display: flex; flex-wrap: wrap; justify-content: center; gap: 2px 16px; font-size: 18px; margin-bottom: 6px; }
     .people span, .aff span { white-space: nowrap; }
-    .aff { display: flex; flex-wrap: wrap; gap: 0 18px; color: var(--muted); font-size: 14px; }
-    .links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
-    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 8px; background: var(--btn);
+    .aff { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 16px; color: var(--muted); font-size: 15px; }
+    .links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 24px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 9px 18px; border-radius: 999px; background: var(--btn);
            color: var(--btn-ink); text-decoration: none; font-weight: 600; font-size: 15px; }
     .btn svg { width: 18px; height: 18px; fill: currentColor; }
     .btn.soon { background: var(--btn-off); cursor: default; }
     .btn small { font-weight: 400; opacity: .8; }
 
-    section { padding: 44px 0; border-top: 1px solid var(--rule); }
-    h2 { font-family: "Fraunces", Georgia, serif; font-size: clamp(24px, 3vw, 32px); line-height: 1.2; margin: 0 0 10px; }
-    .lead { color: var(--muted); max-width: 780px; margin: 0 0 26px; }
+    section { padding: 36px 0; border-top: 1px solid var(--rule); }
+    h2 { font-family: "Source Serif 4", Georgia, serif; font-size: clamp(22px, 2.8vw, 28px); line-height: 1.2; margin: 0 0 10px; text-align: center; }
+    .lead { color: var(--muted); max-width: 760px; margin: 0 auto 24px; text-align: center; }
     p { margin: 0 0 14px; }
 
-    .demo { background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; padding: 20px; }
-    .task { font-family: "IBM Plex Mono", monospace; font-size: 14px; color: var(--muted); margin-bottom: 14px; }
-    .rowlabel { font-size: 13px; font-weight: 600; color: var(--muted); margin: 10px 0 6px; text-transform: uppercase; letter-spacing: .05em; }
+    .demo { background: var(--bg); border: 1px solid var(--rule); border-radius: 14px; padding: 20px; }
+    .task { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 14px; color: var(--muted); margin-bottom: 14px; text-align: center; }
+    .rowlabel { font-size: 13px; font-weight: 600; color: var(--muted); margin: 10px 0 6px; text-transform: uppercase; letter-spacing: .05em; text-align: center; }
     .track { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
     .step { border: 1px solid var(--rule); border-radius: 10px; padding: 10px 10px 8px; font-size: 14px; line-height: 1.35; min-height: 74px;
-            background: var(--bg); transition: opacity .25s, border-color .25s, background .25s; }
-    .step .n { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--muted); display: block; margin-bottom: 3px; }
+            background: var(--surface); transition: opacity .25s, border-color .25s, background .25s; }
+    .step .n { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 12px; color: var(--muted); display: block; margin-bottom: 3px; }
     .step.hidden { opacity: .22; }
     .step.cur { border-color: var(--ink); }
     .step.err { background: var(--alarm-soft); border-color: var(--alarm); }
     .step.gap { border-style: dashed; color: var(--muted); }
-    .step .flag { display: block; margin-top: 4px; font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--alarm); font-weight: 500; overflow-wrap: anywhere; }
+    .step .flag { display: block; margin-top: 4px; font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 11px; color: var(--alarm); font-weight: 500; overflow-wrap: anywhere; }
     .ref .step { background: transparent; }
-    .controls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 18px 0 14px; }
-    .controls button { font: inherit; font-size: 15px; font-weight: 600; padding: 8px 16px; border-radius: 8px; border: 1px solid var(--ink);
+    .controls { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px; margin: 18px 0 14px; }
+    .controls button { font: inherit; font-size: 15px; font-weight: 600; padding: 8px 16px; border-radius: 999px; border: 1px solid var(--ink);
                        background: transparent; color: var(--ink); cursor: pointer; }
     .controls button.primary { background: var(--ink); color: var(--bg); }
     .controls button:disabled { opacity: .35; cursor: default; }
-    .controls .pos { font-family: "IBM Plex Mono", monospace; font-size: 14px; color: var(--muted); }
+    .controls .pos { flex-basis: 100%; text-align: center; font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 14px; color: var(--muted); }
     .monitor { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
-    .q { border-radius: 10px; padding: 12px 14px; background: var(--ok-soft); transition: background .25s; }
+    .q { border-radius: 10px; padding: 12px 14px; background: var(--ok-soft); transition: background .25s; text-align: center; }
     .q.on { background: var(--alarm-soft); }
     .q b { display: block; font-size: 13px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin-bottom: 2px; }
     .q span { font-size: 16px; font-weight: 600; overflow-wrap: anywhere; }
     .q.on span { color: var(--alarm); }
     .q:not(.on) span { color: var(--ok); }
-    .why { margin-top: 12px; font-size: 15px; color: var(--muted); min-height: 3.3em; }
+    .why { margin-top: 12px; font-size: 15px; color: var(--muted); min-height: 3.3em; text-align: center; }
 
     .metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
-    .metric { border-top: 3px solid var(--ink); padding-top: 10px; }
-    .metric .m { font-family: "IBM Plex Mono", monospace; font-size: 13px; color: var(--muted); }
+    .metric { background: var(--surface); border-radius: 10px; padding: 16px; text-align: center; }
+    .metric .m { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 13px; color: var(--muted); }
     .metric h3 { font-size: 18px; margin: 2px 0 4px; }
     .metric p { font-size: 15px; color: var(--muted); margin: 0; }
 
     .tax { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-    .group h3 { font-size: 17px; margin: 0 0 4px; }
-    .group .gl { font-size: 14px; color: var(--muted); margin: 0 0 10px; }
+    .group h3 { font-size: 17px; margin: 0 0 4px; text-align: center; }
+    .group .gl { font-size: 14px; color: var(--muted); margin: 0 0 10px; text-align: center; }
     .err-card { border-radius: 10px; padding: 10px 14px; margin-bottom: 8px; font-size: 15px; line-height: 1.45; }
     .group.prog .err-card { background: var(--prog-soft); }
     .group.act .err-card { background: var(--act-soft); }
-    .err-card b { font-family: "IBM Plex Mono", monospace; font-size: 13px; font-weight: 500; display: block; }
+    .err-card b { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 13px; font-weight: 500; display: block; }
     .group.prog .err-card b { color: var(--prog); }
     .group.act .err-card b { color: var(--act); }
 
     .nums { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
-    .num { background: var(--surface); border: 1px solid var(--rule); border-radius: 12px; padding: 16px; }
-    .num strong { font-family: "Fraunces", Georgia, serif; font-size: 32px; display: block; line-height: 1.1; }
+    .num { background: var(--surface); border-radius: 10px; padding: 16px; text-align: center; }
+    .num strong { font-family: "Source Serif 4", Georgia, serif; font-size: 32px; display: block; line-height: 1.1; }
     .num span { font-size: 14px; color: var(--muted); }
 
     figure { margin: 0; }
     figure img { width: 100%; height: auto; display: block; border-radius: 10px; background: #fff; border: 1px solid var(--rule); }
-    figcaption { color: var(--muted); font-size: 15px; margin-top: 10px; }
-    pre { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 16px; overflow-x: auto;
-          font-family: "IBM Plex Mono", monospace; font-size: 13.5px; line-height: 1.5; margin: 0; }
-    footer { color: var(--muted); font-size: 13px; padding: 28px 0 44px; border-top: 1px solid var(--rule); }
+    figcaption { color: var(--muted); font-size: 15px; margin-top: 10px; text-align: center; }
+    pre { background: var(--surface); border-radius: 10px; padding: 16px; overflow-x: auto;
+          font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 13.5px; line-height: 1.5; margin: 0; }
+    footer { color: var(--muted); font-size: 13px; padding: 28px 0 44px; border-top: 1px solid var(--rule); text-align: center; }
 
     @media (max-width: 760px) {
       .track { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .monitor, .metrics, .nums { grid-template-columns: 1fr 1fr; }
       .tax { grid-template-columns: 1fr; }
-      .hero { padding-top: 40px; }
+      .hero { padding-top: 36px; }
     }
     @media (max-width: 420px) { .monitor { grid-template-columns: 1fr; } }
   </style>
@@ -125,7 +126,7 @@
 
   <header class="hero">
     <div class="kicker">CoRL 2026</div>
-    <h1>HelpMeOut: A Neuropsychology-Grounded Benchmark for Error-Aware Monitoring of Household Task Execution</h1>
+    <h1><span class="name">HelpMeOut</span>: A Neuropsychology-Grounded Benchmark for Error-Aware Monitoring of Household Task Execution</h1>
     <p class="sub">Household benchmarks ask what a person wants to do. HelpMeOut asks whether their ongoing execution is going wrong, when, and how.</p>
     <div class="people">
       <span>Haoran Wang<sup>1</sup></span><span>Jingwei Huang<sup>2</sup></span><span>Anqing Duan<sup>2</sup></span><span>Ho Seok Ahn<sup>1</sup></span><span>Bruce Macdonald<sup>1</sup></span>
