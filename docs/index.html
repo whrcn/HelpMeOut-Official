@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HelpMeOut</title>
+  <meta name="description" content="HelpMeOut: A Neuropsychology-Grounded Benchmark for Error-Aware Monitoring of Household Task Execution (CoRL 2026).">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #1d2330;
+      --muted: #5b6474;
+      --accent: #b4442e;
+      --btn-bg: #1d2330;
+      --btn-fg: #ffffff;
+      --btn-disabled: #8a93a3;
+      --card: #f5f6f8;
+      --rule: #e4e7ec;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #14171d; --fg: #e6e8ec; --muted: #a2a9b6; --accent: #e07a5f;
+        --btn-bg: #e6e8ec; --btn-fg: #14171d; --btn-disabled: #6b7280;
+        --card: #1c2028; --rule: #2a2f39;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0; background: var(--bg); color: var(--fg);
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-size: 17px; line-height: 1.65;
+    }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+    header { text-align: center; padding: 56px 0 28px; }
+    .venue { display: inline-block; font-size: 13px; font-weight: 600; letter-spacing: .06em;
+             text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+    h1 { font-family: "Source Serif 4", Georgia, serif; font-weight: 700;
+         font-size: clamp(26px, 4.4vw, 42px); line-height: 1.2; margin: 0 auto 22px; max-width: 900px; }
+    h1 .name { font-variant: small-caps; }
+    .authors { font-size: 18px; margin: 0 0 6px; display: flex; flex-wrap: wrap; justify-content: center; row-gap: 2px; }
+    .authors span { white-space: nowrap; margin: 0 8px; }
+    .affil { color: var(--muted); font-size: 15px; margin: 0 0 4px; display: flex; flex-wrap: wrap; justify-content: center; gap: 0 14px; }
+    .affil span { white-space: nowrap; }
+    .note { color: var(--muted); font-size: 13px; margin-top: 6px; }
+    .links { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 26px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 9px 18px; border-radius: 999px;
+           background: var(--btn-bg); color: var(--btn-fg); text-decoration: none; font-weight: 600; font-size: 15px; }
+    .btn svg { width: 18px; height: 18px; fill: currentColor; }
+    .btn.soon { background: var(--btn-disabled); cursor: default; }
+    .btn .tag { font-size: 11px; font-weight: 500; opacity: .85; }
+    section { padding: 28px 0; border-top: 1px solid var(--rule); }
+    h2 { font-family: "Source Serif 4", Georgia, serif; font-size: 26px; text-align: center; margin: 0 0 18px; }
+    p { margin: 0 0 14px; }
+    figure { margin: 0 0 8px; }
+    figure img { width: 100%; height: auto; display: block; border-radius: 8px; background: #fff; }
+    figcaption { color: var(--muted); font-size: 15px; margin-top: 10px; }
+    .abstract { text-align: justify; hyphens: auto; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+    .card { background: var(--card); border-radius: 10px; padding: 16px 18px; }
+    .card b { display: block; font-size: 15px; margin-bottom: 4px; }
+    .card span { color: var(--muted); font-size: 15px; }
+    pre { background: var(--card); border-radius: 10px; padding: 16px; overflow-x: auto;
+          font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 13.5px; line-height: 1.5; margin: 0; }
+    footer { color: var(--muted); font-size: 13px; text-align: center; padding: 28px 0 40px; border-top: 1px solid var(--rule); }
+    @media (max-width: 600px) { body { font-size: 16px; } header { padding-top: 36px; } .authors span { margin: 0 6px; } .abstract { text-align: left; } }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="venue">CoRL 2026</div>
+    <h1><span class="name">HelpMeOut</span>: A Neuropsychology-Grounded Benchmark for Error-Aware Monitoring of Household Task Execution</h1>
+    <p class="authors">
+      <span>Haoran Wang<sup>1</sup></span><span>Jingwei Huang<sup>2</sup></span><span>Anqing Duan<sup>2</sup></span><span>Ho Seok Ahn<sup>1</sup></span><span>Bruce Macdonald<sup>1</sup></span>
+    </p>
+    <p class="affil"><span><sup>1</sup>University of Auckland, New Zealand</span><span><sup>2</sup>MBZUAI, United Arab Emirates</span></p>
+
+    <div class="links">
+      <!-- 链接待填：把 href 换成真实地址，并去掉 class 里的 soon -->
+      <a class="btn soon" href="#" aria-disabled="true" title="Coming soon">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15a0 0 0 0 1 0 0H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm8 1.5V8h4.5L14 3.5zM8 12h8v1.6H8V12zm0 3.4h8V17H8v-1.6z"/></svg>
+        arXiv <span class="tag">soon</span>
+      </a>
+      <a class="btn soon" href="#" aria-disabled="true" title="Coming soon">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>
+        Code <span class="tag">soon</span>
+      </a>
+    </div>
+  </header>
+
+  <section>
+    <figure>
+      <img src="static/teaser.png" alt="HelpMeOut task overview with an instant-coffee episode: episode definition, paired correct and errorful trajectories, monitoring system input and output, and evaluation labels.">
+      <figcaption><b>Task overview.</b> An episode pairs a correct reference execution with an errorful one. A monitor observes the initial scene and the action prefix, and must decide <em>whether</em>, <em>when</em>, and <em>what kind</em> of execution error occurs.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>Abstract</h2>
+    <p class="abstract">
+      We introduce <span style="font-variant:small-caps">HelpMeOut</span>, an embodied AI benchmark for error-aware monitoring of household task execution.
+      Existing embodied household benchmarks typically assume that humans execute tasks correctly, but this assumption does not hold for cognitively impaired persons or older adults whose everyday activities produce structured execution errors.
+      To address this gap, <span style="font-variant:small-caps">HelpMeOut</span> operationalizes research on everyday action errors into 20,000 paired activity episodes, covering nine neuropsychologically motivated error categories.
+      In each episode, agents observe a streaming human activity trajectory and must monitor whether the execution is unfolding correctly, diagnosing any structured errors as early as possible.
+      Results show that current methods perform poorly as error monitors, often missing when execution goes wrong.
+      These results suggest a gap left by standard goal-inference and task-completion benchmarks, making <span style="font-variant:small-caps">HelpMeOut</span> a testbed for error-aware assistive agents.
+    </p>
+  </section>
+
+  <section>
+    <h2>Benchmark at a Glance</h2>
+    <div class="grid">
+      <div class="card"><b>20,000 episodes</b><span>12,000 errorful and 8,000 correct household executions</span></div>
+      <div class="card"><b>50 task templates</b><span>ADL / IADL routines: cooking, cleaning, laundry, packing, medication, personal care</span></div>
+      <div class="card"><b>9 error categories</b><span>Grounded in the NAT / MLAT taxonomies of everyday action errors</span></div>
+      <div class="card"><b>4 metrics</b><span>Whether (M1), where (M2), when (M3), and what kind (M4) of error</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Error Generation</h2>
+    <figure>
+      <img src="static/pipeline.png" alt="Error-generation pipeline: a neuropsychological profile drives a goal-control model that samples an error type and onset, edits a valid reference trajectory, and validates the errorful trajectory by symbolic replay.">
+      <figcaption>A neuropsychological profile drives a goal-control model to sample an error type and onset, edit a valid reference trajectory, and validate the resulting errorful trajectory by symbolic replay.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>BibTeX</h2>
+<pre><code>@inproceedings{wang2026helpmeout,
+  title     = {HelpMeOut: A Neuropsychology-Grounded Benchmark for Error-Aware Monitoring of Household Task Execution},
+  author    = {Wang, Haoran and Huang, Jingwei and Duan, Anqing and Ahn, Ho Seok and Macdonald, Bruce},
+  booktitle = {Conference on Robot Learning (CoRL)},
+  year      = {2026}
+}</code></pre>
+  </section>
+
+  <footer>Contact: b.macdonald@auckland.ac.nz</footer>
+</div>
+</body>
+</html>
